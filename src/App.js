@@ -1,23 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { SelectCourse } from "./Components/selectCourse";
+import { Javascript } from "./Components/javascript";
+import { FinishQuiz } from "./Components/finishQuiz";
+import { LoginPage } from "./Components/loginPage";
+import { RegistrationPage } from "./Components/registerPage";
+
+import React, { useState } from "react";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous"
+/>;
+
+export const quizContext = React.createContext();
 
 function App() {
+  const [score, setScore] = useState(0);
+  const [activeQuestion, setActiveQuestion] = useState(null); // Current question from db
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Router>
+        <quizContext.Provider value={{
+          score,
+          setScore,
+          activeQuestion,
+          setActiveQuestion,
+        }}
         >
-          Learn React
-        </a>
-      </header>
+
+        <Switch>
+        <Route exact path="/">
+            <LoginPage />
+          </Route>
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
+          <Route exact path="/select-course">
+            <SelectCourse />
+          </Route>
+          <Route exact path="/javascript">
+            <Javascript />
+          </Route>
+          <Route exact path="/end-quiz">
+            <FinishQuiz />
+          </Route>
+        </Switch>
+
+        </quizContext.Provider>
+      </Router>
     </div>
   );
 }

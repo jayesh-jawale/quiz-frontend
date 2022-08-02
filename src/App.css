@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,96 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* * {
+  background-color: gainsboro;
+} */
+
+::after, ::before {
+  box-sizing: border-box;
+}
+
+.quiz-header {
+  width: 80%;
+  margin: 60px auto auto;
+  padding: 20px;
+  display: flex;
+  font-size: large;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 15px -5px green;
+}
+.quiz-header-text {
+  font-size: 1.5rem;
+}
+
+.select-course {
+  margin: 20px;
+  padding: 20px;
+}
+
+.course-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin-top: 70px;
+}
+
+.js-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+}
+.js-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  width: 80%;
+  box-shadow: 0px 0px 15px -5px green;
+}
+.js-quiz {
+  box-shadow: 0px 0px 15px -5px green;
+  width: 80%;
+}
+
+.question {
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 15px -5px green;
+}
+.question-options {
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0px 0px 15px -5px green;
+}
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  box-shadow: 0px 0px 15px -5px cyan;
 }

@@ -25,6 +25,7 @@ export function LoginForm() {
       } else {
         alert("Login Success");
         history.push("/select-course");
+        sessionStorage.setItem('isAuthenticated', 'true')
       }
     });
   };

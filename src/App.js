@@ -1,8 +1,8 @@
 import "./App.css";
 import { Dashboard } from "./Admin-Dashboard/dashboard";
-import { Users } from "./Admin-Dashboard/users";
-import { Questions } from "./Admin-Dashboard/questions";
 import { QuestionDetails } from "./Admin-Dashboard/questionDetails";
+import { UserDashboardRoute } from "./Admin-Dashboard/dashboardRoutes";
+import { QuestionDashboardRoute } from "./Admin-Dashboard/dashboardRoutes";
 import { SelectCourse } from "./Components/selectCourse";
 import { Javascript } from "./Components/javascript";
 import { FinishQuiz } from "./Components/finishQuiz";
@@ -10,7 +10,12 @@ import { LoginPage } from "./Components/loginPage";
 import { RegistrationPage } from "./Components/registerPage";
 
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { UpdateQuestion } from "./Admin-Dashboard/updateQuestion";
@@ -47,43 +52,59 @@ export default function App() {
               <RegistrationPage />
             </Route>
 
-          {/* Dashboard Routes */}
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
+            {/* Dashboard Routes */}
+            <ProtectedRoute exact path="/dashboard" component={Dashboard} />
 
-            <Route exact path="/users">
-              <Dashboard />
-              <Users />
-            </Route>
+            <ProtectedRoute
+              exact
+              path="/users"
+              component={UserDashboardRoute}
+            />
 
-            <Route exact path="/questions">
-              <Dashboard />
-              <Questions />
-            </Route>
+            <ProtectedRoute
+              exact
+              path="/questions"
+              component={QuestionDashboardRoute}
+            />
 
-            <Route exact path="/questions/:_id">
-              <QuestionDetails />
-            </Route>
-            
-            <Route exact path="/update-question/:_id">
-              <UpdateQuestion />
-            </Route>
-          {/* Dashboard Routes End */}
+            <ProtectedRoute
+              exact
+              path="/questions/:_id"
+              component={QuestionDetails}
+            />
 
-            <Route exact path="/select-course">
-              <SelectCourse />
-            </Route>
+            <ProtectedRoute
+              exact
+              path="/update-question/:_id"
+              component={UpdateQuestion}
+            />
+            {/* Dashboard Routes End */}
 
-            <Route exact path="/javascript">
-              <Javascript />
-            </Route>
-            <Route exact path="/end-quiz">
-              <FinishQuiz />
-            </Route>
+            <ProtectedRoute
+              exact
+              path="/select-course"
+              component={SelectCourse}
+            />
+
+            <ProtectedRoute exact path="/javascript" component={Javascript} />
+            <ProtectedRoute exact path="/end-quiz" component={FinishQuiz} />
           </Switch>
         </quizContext.Provider>
       </Router>
     </div>
+  );
+}
+
+function ProtectedRoute({ component: Component, ...restOfProps }) {
+  const isAuthenticated = sessionStorage.getItem("isAuthenticated");
+  console.log("this", isAuthenticated);
+
+  return (
+    <Route
+      {...restOfProps}
+      render={(props) =>
+        isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
+      }
+    />
   );
 }

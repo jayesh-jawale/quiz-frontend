@@ -1,8 +1,14 @@
 import Button from "react-bootstrap/Button";
-import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export function Dashboard() {
+  const history = useHistory();
+
+  const logMeOut = () => {
+    sessionStorage.clear();
+    history.push('/')
+  }
 
   return (
     <div className="dashboard">
@@ -17,7 +23,7 @@ export function Dashboard() {
         <Link to="/questions">
         <Button variant="light">Questions</Button>
         </Link>
-        <Button variant="light">Logout</Button>
+        <Button onClick={() => logMeOut()} variant="light">Logout</Button>
       </div>
     </div>
   );

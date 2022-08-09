@@ -95,6 +95,14 @@
   width: 80%;
 }
 
+.end-quiz {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .question {
   padding: 20px;
   margin: 20px;

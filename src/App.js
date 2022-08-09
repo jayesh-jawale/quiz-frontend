@@ -97,7 +97,6 @@ export default function App() {
 
 function ProtectedRoute({ component: Component, ...restOfProps }) {
   const isAuthenticated = sessionStorage.getItem("isAuthenticated");
-  console.log("this", isAuthenticated);
 
   return (
     <Route

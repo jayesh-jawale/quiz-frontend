@@ -1,5 +1,6 @@
 import "./App.css";
 import { Dashboard } from "./Admin-Dashboard/dashboard";
+import { AddQuestion } from "./Admin-Dashboard/addQuestion";
 import { QuestionDetails } from "./Admin-Dashboard/questionDetails";
 import { UserDashboardRoute } from "./Admin-Dashboard/dashboardRoutes";
 import { QuestionDashboardRoute } from "./Admin-Dashboard/dashboardRoutes";
@@ -65,6 +66,12 @@ export default function App() {
               exact
               path="/questions"
               component={QuestionDashboardRoute}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/add-question"
+              component={AddQuestion}
             />
 
             <ProtectedRoute

@@ -23,6 +23,9 @@ export function Dashboard() {
         <Link to="/questions">
         <Button variant="light">Questions</Button>
         </Link>
+        <Link to="/add-question">
+        <Button variant="light">Add Question</Button>
+        </Link>
         <Button onClick={() => logMeOut()} variant="light">Logout</Button>
       </div>
     </div>

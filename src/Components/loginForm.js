@@ -20,13 +20,15 @@ export function LoginForm() {
       headers: { "Content-type": "application/json" },
     }).then((resp) => {
       if (resp.status === 401) {
-        alert("Login Fail");
         history.push("/");
-      } else {
-        alert("Login Success");
-        history.push("/select-course");
-        sessionStorage.setItem('isAuthenticated', 'true')
       }
+     else if(resp.status === 200) {
+        history.push("/select-course");
+      }
+      else {
+        history.push("/dashboard");
+      }
+      sessionStorage.setItem('isAuthenticated', 'true')
     });
   };
 

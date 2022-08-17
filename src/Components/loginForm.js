@@ -14,7 +14,7 @@ export function LoginForm() {
       password,
     };
 
-    fetch("http://localhost:9000/user/login", {
+    fetch('https://jayesh-quiz.herokuapp.com/user/login', {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: { "Content-type": "application/json" },

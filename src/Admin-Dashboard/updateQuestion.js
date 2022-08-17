@@ -8,7 +8,7 @@ export function UpdateQuestion() {
   const { _id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:9000/get-question/${_id}`, {
+    fetch(`https://jayesh-quiz.herokuapp.com/get-question/${_id}`, {
       method: "GET",
     })
       .then((data) => data.json())
@@ -36,7 +36,7 @@ const EditQuestion = ({ questions }) => {
       option4,
     };
 
-    fetch(`http://localhost:9000/update-question/${questions._id}`, {
+    fetch(`https://jayesh-quiz.herokuapp.com/update-question/${questions._id}`, {
       method: "PUT",
       body: JSON.stringify(updateQuestionData),
       headers: { "Content-type": "application/json" },

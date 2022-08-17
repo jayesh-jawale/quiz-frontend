@@ -9,7 +9,7 @@ export function QuestionDetails() {
   const [questions, getQuestions] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:9000/get-question/${_id}`, {
+    fetch(`https://jayesh-quiz.herokuapp.com/get-question/${_id}`, {
       method: "GET",
     })
       .then((data) => data.json())

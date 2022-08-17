@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import { quizContext } from "../App";
-import { FinishQuiz } from "./finishQuiz";
 
 export function Javascript() {
   const {
@@ -26,7 +25,7 @@ export function Javascript() {
   }, []);
 
   const getQuestions = async () => {
-    const resp = await fetch("http://localhost:9000/get-question");
+    const resp = await fetch("https://jayesh-quiz.herokuapp.com/get-question");
     const data = await resp.json();
     setQuestions(data);
     setActiveQuestion(data[count]);

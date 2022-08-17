@@ -5,7 +5,7 @@ export function Users() {
   const [user, getUser] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/user/get-user", {
+    fetch("https://jayesh-quiz.herokuapp.com/user/get-user", {
       method: "GET",
     })
       .then((data) => data.json())

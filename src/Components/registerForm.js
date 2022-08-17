@@ -17,7 +17,7 @@ export function RegistrationForm() {
       password,
     };
 
-    fetch("http://localhost:9000/user/register", {
+    fetch("https://jayesh-quiz.herokuapp.com/user/register", {
       method: "POST",
       body: JSON.stringify(userRegistrationDetails),
       headers: { "Content-type": "application/json" },

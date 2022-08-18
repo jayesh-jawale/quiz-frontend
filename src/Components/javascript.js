@@ -20,16 +20,14 @@ export function Javascript() {
   const history = useHistory();
 
   useEffect(() => {
-    setCount(0);
-    getQuestions();
-  }, []);
-
-  const getQuestions = async () => {
-    const resp = await fetch("https://jayesh-quiz.herokuapp.com/get-question");
-    const data = await resp.json();
-    setQuestions(data);
-    setActiveQuestion(data[count]);
-  };
+    async function getQuestions() {
+      const resp = await fetch("https://jayesh-quiz.herokuapp.com/get-question");
+      const data = await resp.json();
+      setQuestions(data);
+      setActiveQuestion(data[count]);
+    };
+    getQuestions()
+  }, [count, setActiveQuestion])
 
   const chooseOption = (option) => {
     setOptionChosen(option);

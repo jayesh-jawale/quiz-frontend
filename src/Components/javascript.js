@@ -61,6 +61,7 @@ export function Javascript() {
           src="https://www.computerhope.com/jargon/j/javascript.png"
           width={"100px"}
           height={"100px"}
+          alt="js"
         />
         Time
       </div>

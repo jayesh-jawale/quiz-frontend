@@ -14,21 +14,19 @@ export function LoginForm() {
       password,
     };
 
-    fetch('https://jayesh-quiz.herokuapp.com/user/login', {
+    fetch("https://jayesh-quiz.herokuapp.com/user/login", {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: { "Content-type": "application/json" },
     }).then((resp) => {
       if (resp.status === 401) {
         history.push("/");
-      }
-     else if(resp.status === 200) {
+      } else if (resp.status === 200) {
         history.push("/select-course");
-      }
-      else {
+      } else {
         history.push("/dashboard");
       }
-      sessionStorage.setItem('isAuthenticated', 'true')
+      sessionStorage.setItem("isAuthenticated", "true");
     });
   };
 
@@ -44,6 +42,20 @@ export function LoginForm() {
 
   return (
     <Container>
+      <Row>
+        <Col>
+          <span>
+            <b>Admin: </b>jawalejayesh123@gmail.com / Password123
+          </span>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <span>
+            <b>User: </b>n@n.com / jayesh
+          </span>
+        </Col>
+      </Row>
       <Row>
         <Col>
           <h1>Login Form</h1>

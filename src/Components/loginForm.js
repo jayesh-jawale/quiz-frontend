@@ -14,7 +14,7 @@ export function LoginForm() {
       password,
     };
 
-    fetch("https://jayesh-quiz.herokuapp.com/user/login", {
+    fetch("https://quiz-backend-nine.vercel.app/user/login", {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: { "Content-type": "application/json" },

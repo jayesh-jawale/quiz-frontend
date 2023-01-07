@@ -10,7 +10,7 @@ export function Questions() {
   const history = useHistory();
 
   const allQuestions = () => {
-      fetch("https://jayesh-quiz.herokuapp.com/get-question", {
+      fetch("https://quiz-backend-nine.vercel.app/get-question", {
         method: "GET",
       })
         .then((data) => data.json())
@@ -19,7 +19,7 @@ export function Questions() {
   useEffect(allQuestions, []);
 
 const deleteQuestion = (_id) => {
-  fetch(`https://jayesh-quiz.herokuapp.com/delete-question/${_id}`, {
+  fetch(`https://quiz-backend-nine.vercel.app/delete-question/${_id}`, {
     method: "DELETE",
   })
   .then(() => allQuestions());

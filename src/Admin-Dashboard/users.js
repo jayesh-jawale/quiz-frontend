@@ -5,7 +5,7 @@ export function Users() {
   const [user, getUser] = useState([]);
 
   useEffect(() => {
-    fetch("https://jayesh-quiz.herokuapp.com/user/get-user", {
+    fetch("https://quiz-backend-nine.vercel.app/user/get-user", {
       method: "GET",
     })
       .then((data) => data.json())

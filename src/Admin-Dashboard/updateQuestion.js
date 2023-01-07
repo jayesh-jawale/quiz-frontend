@@ -8,7 +8,7 @@ export function UpdateQuestion() {
   const { _id } = useParams();
 
   useEffect(() => {
-    fetch(`https://jayesh-quiz.herokuapp.com/get-question/${_id}`, {
+    fetch(`https://quiz-backend-nine.vercel.app/get-question/${_id}`, {
       method: "GET",
     })
       .then((data) => data.json())
@@ -36,7 +36,7 @@ const EditQuestion = ({ questions }) => {
       option4,
     };
 
-    fetch(`https://jayesh-quiz.herokuapp.com/update-question/${questions._id}`, {
+    fetch(`https://quiz-backend-nine.vercel.app/update-question/${questions._id}`, {
       method: "PUT",
       body: JSON.stringify(updateQuestionData),
       headers: { "Content-type": "application/json" },

@@ -21,7 +21,7 @@ export function Javascript() {
 
   useEffect(() => {
     async function getQuestions() {
-      const resp = await fetch("https://jayesh-quiz.herokuapp.com/get-question");
+      const resp = await fetch("https://quiz-backend-nine.vercel.app/get-question");
       const data = await resp.json();
       setQuestions(data);
       setActiveQuestion(data[count]);

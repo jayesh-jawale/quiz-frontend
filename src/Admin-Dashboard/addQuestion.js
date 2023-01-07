@@ -23,7 +23,7 @@ export function AddQuestion() {
       answer
     };
 
-    fetch('http://localhost:9000/create-question', {
+    fetch('https://quiz-backend-nine.vercel.app/create-question', {
       method: "POST",
       body: JSON.stringify(addQuestionData),
       headers: { "Content-type": "application/json" },
